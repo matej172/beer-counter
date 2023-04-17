@@ -1,9 +1,12 @@
 @extends('layouts.base')
+
+@section('body')
 <div class="w-96 flex flex-col flex-grow items-center" x-data="{ modelOpen: false }">
     <div class="flex-grow w-full">
         <ul class="text-amber-100 font-bold border border-2 mt-12 mx-4 border-amber-100 flex flex-col divide-y divide-amber-100">
-            <li class="py-4 text-center hover:text-amber-300 hover:bg-green-700 transition-colors">12.04.2023 - Urban srdcovka</li>
-            <li class="py-4 text-center hover:text-amber-300 hover:bg-green-700 transition-colors">12.04.2023 - Urban srdcovka</li>
+            @foreach($gatherings as $gathering)
+            <li class="py-4 text-center hover:text-amber-300 hover:bg-green-700 transition-colors"><a href="{{route('gathering.show', $gathering->id)}}">{{"$gathering->date - $gathering->note"}}</a></li>
+            @endforeach
         </ul>
     </div>
     <button @click="modelOpen =!modelOpen" type="button" class="mb-12 border h-14 w-14 border-4 p-2 rounded-full border-amber-100 stroke-amber-100 hover:stroke-amber-300 hover:border-amber-300 hover:scale-110 transition">
@@ -56,3 +59,4 @@
         </div>
     </div>
 </div>
+@endsection

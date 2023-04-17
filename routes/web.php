@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GatheringController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('dashboard');
+    redirect('gathering.index');
 });
+
+Route::resource('gathering', GatheringController::class)->only(['show', 'index', 'store', 'update']);
