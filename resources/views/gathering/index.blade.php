@@ -45,12 +45,13 @@
                     Zadaj názov podniku alebo inú poznámku
                 </p>
 
-                <form class="mt-5">
+                <form class="mt-5" method="POST" action="{{route('gathering.store')}}">
+                    @csrf
                     <div class="mt-4">
-                        <input type="text" class="block w-full px-3 py-2 mt-2 t bg-white border border-gray-400 rounded-md">
+                        <input type="text" class="block w-full px-3 py-2 mt-2 t bg-white border border-gray-400 rounded-md" name="note">
                     </div>
                     <div class="flex justify-end mt-6">
-                        <button type="button" class="px-3 py-2 text-sm tracking-wide text-white transition-colors transform bg-red-800 rounded-md hover:bg-red-700 focus:outline-none focus:bg-red-600 font-bold">
+                        <button class="px-3 py-2 text-sm tracking-wide text-white transition-colors transform bg-red-800 rounded-md hover:bg-red-700 focus:outline-none focus:bg-red-600 font-bold">
                             Pridaj posedenie
                         </button>
                     </div>

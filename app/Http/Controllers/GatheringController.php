@@ -21,7 +21,10 @@ class GatheringController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $gathering = new Gathering();
+        $gathering->note = $request->input("note");
+        $gathering->save();
+        return redirect(route('gathering.index'));
     }
 
     /**

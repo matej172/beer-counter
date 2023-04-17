@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -13,8 +14,8 @@ return new class extends Migration
     {
         Schema::create('gatherings', function (Blueprint $table) {
             $table->id();
-            $table->unsignedTinyInteger('beers');
-            $table->date('date');
+            $table->unsignedTinyInteger('beers')->default(0);
+            $table->date('date')->default(date("Y-m-d H:i:s"));
             $table->string('note');
             $table->timestamps();
         });
